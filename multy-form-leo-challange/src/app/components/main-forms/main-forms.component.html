@@ -1,6 +1,91 @@
 <div class="your-info-main">
-    <div class="form-header">
-        <h1>Personal Info</h1>
-        <h4>Please Provide your name, email address, and phone number</h4>
+
+    <div *ngIf="currentStep === 1">
+        <div class="form-header">
+            <h1>Personal Info</h1>
+            <h4>Please Provide your name, email address, and phone number</h4>
+        </div>
+        <form class="form" [formGroup]="registerForm">
+            <div class="field">
+                <div class="input-container">
+                    <input type="text" class="input" formControlName="username" placeholder="Name" [class.invalid]="registerForm.get('username')?.invalid && 
+                (registerForm.get('username')?.dirty || 
+                registerForm.get('username')?.touched || 
+                isSubmitted)
+                ">
+                    <mat-icon class="warn_icon" *ngIf="registerForm.get('username')?.invalid && 
+                (registerForm.get('username')?.dirty || 
+                registerForm.get('username')?.touched || 
+                isSubmitted)">warning</mat-icon>
+                </div>
+            </div>
+            <div class="field">
+
+                <div class="input-container">
+                    <input type="text" class="input" formControlName="email" placeholder="Email" [class.invalid]="registerForm.get('email')?.invalid && 
+                (registerForm.get('email')?.dirty || 
+                registerForm.get('email')?.touched || 
+                isSubmitted)
+                ">
+                    <mat-icon class="warn_icon" *ngIf="registerForm.get('email')?.invalid && 
+                (registerForm.get('email')?.dirty || 
+                registerForm.get('email')?.touched || 
+                isSubmitted)">warning</mat-icon>
+                </div>
+            </div>
+            <div class="field">
+                <div class="input-container">
+                    <input type="number" class="input" formControlName="phoneNum" placeholder="595808244" [class.invalid]="registerForm.get('phoneNum')?.invalid && 
+                    (registerForm.get('phoneNum')?.dirty || 
+                    registerForm.get('phoneNum')?.touched || 
+                    isSubmitted)
+                    ">
+                    <mat-icon class="warn_icon" *ngIf="registerForm.get('phoneNum')?.invalid && 
+                (registerForm.get('phoneNum')?.dirty || 
+                registerForm.get('phoneNum')?.touched || 
+                isSubmitted)">warning</mat-icon>
+                </div>
+            </div>
+        </form>
+
+        <div class="next-step-btn">
+            <button class="btn-next" (click)="nextStep()">Next Step</button>
+        </div>
+
     </div>
+
+    <div *ngIf="currentStep === 2">
+        <div class="form-header">
+            <h1>Pick add-ons</h1>
+            <h4>Add-ons help enhanche your gaming experience</h4>
+        </div>
+        <form class="form" [formGroup]="registerForm">
+            <div class="field">
+                <label>
+                    <input type="checkbox" formControlName="onlineService"> Online Service
+                </label>
+            </div>
+            <div class="field">
+                <label>
+                    <input type="checkbox" formControlName="largerStorage"> Larger Storage
+                </label>
+            </div>
+            <div class="field">
+                <label>
+                    <input type="checkbox" formControlName="costumizable"> Costumizable Profile
+                </label>
+            </div>
+        </form>
+        <button (click)="previousStep()">Previous</button>
+        <button (click)="nextStep()">Next</button>
+    </div>
+
+    <div *ngIf="currentStep === 3">
+        <div>
+            <h1>THANKS</h1>
+        </div>
+
+        <button (click)="previousStep()">Previous</button>
+    </div>
+
 </div>
