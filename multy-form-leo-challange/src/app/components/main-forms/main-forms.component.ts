@@ -14,13 +14,17 @@ export class MainFormsComponent {
     phoneNum: ['', Validators.required],
     onlineService: [false],
     largerStorage: [false],
-    costumizable: [false],
+    customizable: [false],
 
   })
   currentStep: number = 1;
   constructor(private fb: FormBuilder) {
   }
 
+  isChecked = false;
+  isChecked1 = false;
+  isChecked2 = false;
+  
   isSubmitted = false;
   
 
@@ -54,6 +58,19 @@ export class MainFormsComponent {
 
   previousStep() {
     this.currentStep--;
+  }
+
+
+  toggleCheckbox() {
+    this.isChecked = !this.isChecked;
+  }
+
+  toggleCheckbox1() {
+    this.isChecked1 = !this.isChecked1;
+  }
+
+  toggleCheckbox2() {
+    this.isChecked2 = !this.isChecked2;
   }
  
 

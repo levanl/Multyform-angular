@@ -59,25 +59,37 @@
             <h1>Pick add-ons</h1>
             <h4>Add-ons help enhanche your gaming experience</h4>
         </div>
-        <form class="form" [formGroup]="registerForm">
-            <div class="field">
-                <label>
-                    <input type="checkbox" formControlName="onlineService"> Online Service
-                </label>
+        <form class="form form-checkbox" [formGroup]="registerForm">
+            <div class="field-checkbox" [class.checked]="isChecked" (click)="toggleCheckbox()">
+                <input id="myCheckbox" class="checkbox-cont" name="onlineService" type="checkbox" formControlName="onlineService" [checked]="isChecked"> 
+                <label class="checkbox-label" for="onlineService">
+                    <h4 class="checkbox-headline">Online Service</h4> 
+                    <h5 class="checkbox-attributes">Access to Multiplayer games</h5>
+                </label> 
+                <p class="checkbox-price">+$1/mo</p>
             </div>
-            <div class="field">
-                <label>
-                    <input type="checkbox" formControlName="largerStorage"> Larger Storage
-                </label>
+            <div class="field-checkbox" [class.checked]="isChecked1" (click)="toggleCheckbox1()">
+                <input id="myCheckbox" class="checkbox-cont" name="largerStorage" type="checkbox" formControlName="largerStorage" [checked]="isChecked1"> 
+                <label class="checkbox-label" for="largerStorage">
+                    <h4 class="checkbox-headline">Larger Storage</h4> 
+                    <h5 class="checkbox-attributes">Extra 1 TB of cloud save</h5>
+                </label> 
+                <p class="checkbox-price">+$2/mo</p>
             </div>
-            <div class="field">
-                <label>
-                    <input type="checkbox" formControlName="costumizable"> Costumizable Profile
-                </label>
+            <div class="field-checkbox" [class.checked]="isChecked2" (click)="toggleCheckbox2()">
+                <input id="myCheckbox" class="checkbox-cont" name="customizable" type="checkbox" formControlName="customizable" [checked]="isChecked2"> 
+                <label class="checkbox-label" for="onlineService">
+                    <h4 class="checkbox-headline">Costomizable Profile</h4> 
+                    <h5 class="checkbox-attributes">Custom Theme on your profile</h5>
+                </label> 
+                <p class="checkbox-price">+$2/mo</p>
             </div>
         </form>
-        <button (click)="previousStep()">Previous</button>
-        <button (click)="nextStep()">Next</button>
+        <div class="next-step-btn checkbox-btn">
+            <button class="btn-previous" (click)="previousStep()">Go Back</button>
+            <button class="btn-next" (click)="nextStep()">Next Step</button>
+        </div>
+
     </div>
 
     <div *ngIf="currentStep === 3">
