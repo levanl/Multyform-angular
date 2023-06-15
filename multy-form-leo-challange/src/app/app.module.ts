@@ -13,12 +13,11 @@ import {MatButtonModule} from '@angular/material/button'
 // import { SwiperModule } from 'swiper/angular';
 import {MatIconModule} from '@angular/material/icon';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     StepsFormComponent,
-    MainFormsComponent
+    MainFormsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     // SwiperModule
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

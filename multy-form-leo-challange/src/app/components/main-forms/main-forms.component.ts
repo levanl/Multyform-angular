@@ -62,15 +62,18 @@ export class MainFormsComponent {
 
 
   toggleCheckbox() {
-    this.isChecked = !this.isChecked;
+    const value = this.registerForm.get("onlineService").value
+    this.registerForm.get("onlineService").setValue(!value)
   }
 
   toggleCheckbox1() {
-    this.isChecked1 = !this.isChecked1;
+    const value = this.registerForm.get("largerStorage").value
+    this.registerForm.get("largerStorage").setValue(!value)
   }
 
   toggleCheckbox2() {
-    this.isChecked2 = !this.isChecked2;
+    const value = this.registerForm.get("customizable").value
+    this.registerForm.get("customizable").setValue(!value)
   }
  
 
