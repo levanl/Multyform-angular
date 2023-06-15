@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-main-forms',
@@ -18,8 +19,10 @@ export class MainFormsComponent {
 
   })
   currentStep: number = 1;
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private sharedService: SharedService
+    ){}
 
   isChecked = false;
   isChecked1 = false;
@@ -44,6 +47,9 @@ export class MainFormsComponent {
   nextStep() {
     if( this.username.dirty && this.email.dirty && this.phoneNum.dirty) {
       this.currentStep++;
+      this.sharedService.counter = this.currentStep
+      this.sharedService.counter$.next(this.currentStep);
+      console.log(this.sharedService.counter)
     }else {
       console.log("form is invalid")
       this.isSubmitted = true;
@@ -58,6 +64,7 @@ export class MainFormsComponent {
 
   previousStep() {
     this.currentStep--;
+    this.sharedService.counter$.next(this.currentStep);
   }
 
 
