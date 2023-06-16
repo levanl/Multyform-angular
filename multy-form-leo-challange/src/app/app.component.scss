@@ -1,11 +1,23 @@
 .wrapper {
     width: 100%;
     display: flex;
-    gap: 4rem;
 }
 
 .main-part {
     width: 100%;
 }
 
+
+
+@media (max-width:850px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .steps-part {
+        transform: translateY(-4rem);
+    }
+    .main-part {
+        transform: translateY(-3rem);
+    }
+}
 

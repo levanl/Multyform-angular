@@ -274,3 +274,33 @@ margin-top: 5rem;
     text-align: center;
     color: #aeaeb2;
 }
+
+@media (max-width:850px) {
+    .form {
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .field {
+        width: 100%;
+    }
+    .next-step-btn {
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+    .next-step-btn.checkbox-btn {
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+    .field-checkbox {
+        height: 4rem;
+        width: 100%;
+    }
+    .form.form-checkbox {
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    .last-page-cont {
+        margin-top: 5.5rem;
+    }
+}
